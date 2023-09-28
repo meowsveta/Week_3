@@ -6,14 +6,15 @@ public class Main {
     public static void main(String[] args) throws IOException {
         String file = args[0];
         String operation = args[1];
-        String text ="";
+        StringBuilder text = new StringBuilder();
         if (args.length > 2) {
-             text = args[2];
+            for (int i = 2; i< args.length; i++ )
+             text.append(" ").append(args[i]);
         }
 
         switch (operation) {
             case "-create" -> create(file);
-            case "-write" -> write(file, text);
+            case "-write" -> write(file, text.toString());
             case "-delete" -> delete(file);
             case "-read" -> read(file);
         }
