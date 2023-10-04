@@ -20,27 +20,28 @@ public class Main {
         }
     }
 
-    public static void read(String path) throws IOException{ // /Users/svetlanaklimova/Desktop/Week_3/Java8/src/main/java/text.txt -read
+    public static void read(String path) throws IOException{ // /Users/svetlanaklimova/Desktop/Week_3/Java8/src/main/java/test.txt -read
         FileReader reader = new FileReader(path);
-        while (reader.read() != -1) {
-            System.out.print((char)reader.read());
+        int content;
+        while ((content = reader.read() )!= -1) {
+            System.out.print((char)content);
         }
         reader.close();
     }
 
-    public static void write(String path , String text) throws IOException { // /Users/svetlanaklimova/Desktop/Week_3/Java8/src/main/java/text.txt -write test
+    public static void write(String path , String text) throws IOException { // /Users/svetlanaklimova/Desktop/Week_3/Java8/src/main/java/test.txt -write test
         FileWriter writer = new FileWriter(path);
         writer.write(text);
         writer.flush();
         writer.close();
     }
 
-    public static void delete(String path){ // /Users/svetlanaklimova/Desktop/Week_3/Java8/src/main/java/text.txt -delete
+    public static void delete(String path){ // /Users/svetlanaklimova/Desktop/Week_3/Java8/src/main/java/test.txt -delete
         File file = new File(path);
         file.delete();
     }
 
-    public static void create(String path) throws IOException { ///Users/svetlanaklimova/Desktop/Week_3/Java8/src/main/java/ -create
+    public static void create(String path) throws IOException { // /Users/svetlanaklimova/Desktop/Week_3/Java8/src/main/java/ -create
         File path1 = new File(path);
         if (path1.isDirectory()){
             Files.createFile(Path.of(path + "test.txt"));
